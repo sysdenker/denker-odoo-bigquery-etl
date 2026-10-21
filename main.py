@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
-from extractors.res_partner import extraer_e_insertar_partners
+
+# Importamos la nueva función con el nombre correcto
+from extractors.dnk_ventas_general import extraer_e_insertar_ventas
 
 load_dotenv()
 
@@ -13,8 +15,9 @@ GCP_PROJECT = os.environ.get("GCP_PROJECT")
 BQ_DATASET = os.environ.get("BQ_DATASET")
 
 if __name__ == "__main__":
-    print("--- INICIANDO EXTRACCIÓN OFICIAL ---")
-    extraer_e_insertar_partners(
+    print("--- INICIANDO EXTRACCIÓN OFICIAL DE VENTAS ---")
+    # Ejecutamos la función con el nombre correcto
+    extraer_e_insertar_ventas(
         EST_ODOO_URL, EST_ODOO_DB, EST_ODOO_USER, EST_ODOO_PASSWORD,
         GCP_PROJECT, BQ_DATASET
     )
